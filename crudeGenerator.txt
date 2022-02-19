@@ -1,0 +1,51 @@
+
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "content",
+            "type": "text"
+        },
+        {
+            "name": "category",
+            "type": "select",
+            "options": {
+                "technology": "Technology",
+                "tips": "Tips",
+                "health": "Health"
+            }
+        },
+        {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required|max:10"
+        }
+    ]
+}
+
+
+php artisan crud:generate Membre --fields='firstNames#string#required; lastName#string#required;telephone#string;
+email#string;user_id#integer#unsigned,cellule_id#integer#unsigned' --controller-namespace=App\Http\Controllers --foreign-keys="user_id#id#users#cascade;cellule_id#cellules#cascade" --relationships="cellule#belongsTo#App\Models\Cellule" --form-helper=html
