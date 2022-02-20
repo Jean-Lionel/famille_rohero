@@ -25,7 +25,9 @@
                                     <tr>
                                         <th>ID</th><td>{{ $cellule->id }}</td>
                                     </tr>
-                                    <tr><th> FirstNames </th><td> {{ $cellule->firstNames }} </td></tr><tr><th> LastName </th><td> {{ $cellule->lastName }} </td></tr><tr><th> Telephone </th><td> {{ $cellule->telephone }} </td></tr>
+                                    <tr><th>Nom  </th><td> {{ $cellule->name }} </td></tr>
+                                    <tr><th> Description </th><td> {{ $cellule->content }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

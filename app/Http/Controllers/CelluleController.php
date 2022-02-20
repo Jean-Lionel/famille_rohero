@@ -50,6 +50,10 @@ class CelluleController extends Controller
      */
     public function store(Request $request)
     {
+            $validated = $request->validate([
+                'name' => 'required|unique:cellules|max:255',
+                
+            ]);
         
         $requestData = $request->all();
         
