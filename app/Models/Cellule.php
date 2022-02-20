@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Cellule;
+use App\Models\Membre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -33,7 +34,7 @@ class Cellule extends Model
 
 
     public function membres(){
-        $this->hasmany(Cellule::class);
+        return $this->hasmany(Membre::class);
     }
 
     

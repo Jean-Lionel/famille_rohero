@@ -6,27 +6,13 @@
            
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Membre</div>
+                    <div class="card-header">Membres</div>
                     <div class="card-body">
                         <a href="{{ url('/membre/create') }}" class="btn btn-success btn-sm" title="Add New Membre">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Nouveau
                         </a>
-
-                        <form method="GET" action="{{ url('/membre') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
-                                <span class="input-group-append">
-                                    <button class="btn btn-secondary" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-
-                        <br/>
-                        <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table  id="dataTable" class="table" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>#</th>

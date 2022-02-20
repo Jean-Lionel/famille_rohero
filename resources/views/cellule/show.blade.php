@@ -23,11 +23,11 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th>ID</th><td>{{ $cellule->id }}</td>
+                                    <th>ID : </th><td>{{ $cellule->id }}</td>
+                                    <th>Nom  : </th><td> {{ $cellule->name }} </td>
+                                    <th> Description : </th><td> {{ $cellule->content }} </td>
                                 </tr>
-                                <tr><th>Nom  </th><td> {{ $cellule->name }} </td></tr>
-                                <tr><th> Description </th><td> {{ $cellule->content }} </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            
+
           <table id="dataTable" class="display" style="width:100%">
             <thead>
                 <tr>
@@ -44,18 +44,24 @@
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Téléphone</th>
-                    
+                    <th>Email</th>
+
                 </tr>
             </thead>
 
             <tbody>
+
+                @foreach ($cellule->membres as $membre)
+                    {{-- expr --}}
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    
+                    <td>{{ $membre->id}}</td>
+                    <td>{{ $membre->firstName}}</td>
+                    <td>{{ $membre->lastName}}</td>
+                    <td>{{ $membre->telephone}}</td>
+                    <td>{{ $membre->email}}</td> 
                 </tr>
+                @endforeach
+               
             </tbody>
 
             </table>
