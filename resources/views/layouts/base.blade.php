@@ -70,6 +70,13 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('cellule.index') }}">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <span>Contribution</span></a>
+            </li>
+             <hr class="sidebar-divider">
+              <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('cellule.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Cellule</span></a>
             </li>
@@ -318,7 +325,6 @@
 
                     <!-- Page Heading -->
                   
-
                    @yield('content')
 
                 </div>
