@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\Cellule;
-use App\Models\Membre;
+
+use App\Models\TypeCotisation;
 use Illuminate\Http\Request;
 
-class MembreController extends Controller
+class TypeCotisationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,20 +18,17 @@ class MembreController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 50;
+        $perPage = 25;
 
         if (!empty($keyword)) {
-            $membre = Membre::where('firstNames', 'LIKE', "%$keyword%")
-                ->orWhere('lastName', 'LIKE', "%$keyword%")
-                ->orWhere('telephone', 'LIKE', "%$keyword%")
-                ->orWhere('email', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
+            $typecotisation = TypeCotisation::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $membre = Membre::latest()->paginate($perPage);
+            $typecotisation = TypeCotisation::latest()->paginate($perPage);
         }
 
-        return view('membre.index', compact('membre'));
+        return view('type-cotisation.index', compact('typecotisation'));
     }
 
     /**
@@ -41,8 +38,7 @@ class MembreController extends Controller
      */
     public function create()
     {
-        $cellules = Cellule::orderBy('name')->get();
-        return view('membre.create',compact('cellules'));
+        return view('type-cotisation.create');
     }
 
     /**
@@ -57,9 +53,9 @@ class MembreController extends Controller
         
         $requestData = $request->all();
         
-        Membre::create($requestData);
+        TypeCotisation::create($requestData);
 
-        return redirect('membre')->with('flash_message', 'Membre added!');
+        return redirect('type-cotisation')->with('flash_message', 'TypeCotisation added!');
     }
 
     /**
@@ -71,9 +67,9 @@ class MembreController extends Controller
      */
     public function show($id)
     {
-        $membre = Membre::findOrFail($id);
+        $typecotisation = TypeCotisation::findOrFail($id);
 
-        return view('membre.show', compact('membre'));
+        return view('type-cotisation.show', compact('typecotisation'));
     }
 
     /**
@@ -85,9 +81,9 @@ class MembreController extends Controller
      */
     public function edit($id)
     {
-        $membre = Membre::findOrFail($id);
+        $typecotisation = TypeCotisation::findOrFail($id);
 
-        return view('membre.edit', compact('membre'));
+        return view('type-cotisation.edit', compact('typecotisation'));
     }
 
     /**
@@ -103,10 +99,10 @@ class MembreController extends Controller
         
         $requestData = $request->all();
         
-        $membre = Membre::findOrFail($id);
-        $membre->update($requestData);
+        $typecotisation = TypeCotisation::findOrFail($id);
+        $typecotisation->update($requestData);
 
-        return redirect('membre')->with('flash_message', 'Membre updated!');
+        return redirect('type-cotisation')->with('flash_message', 'TypeCotisation updated!');
     }
 
     /**
@@ -118,8 +114,8 @@ class MembreController extends Controller
      */
     public function destroy($id)
     {
-        Membre::destroy($id);
+        TypeCotisation::destroy($id);
 
-        return redirect('membre')->with('flash_message', 'Membre deleted!');
+        return redirect('type-cotisation')->with('flash_message', 'TypeCotisation deleted!');
     }
 }

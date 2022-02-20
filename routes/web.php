@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('cellule', 'App\Http\Controllers\CelluleController');
 Route::resource('membre', 'App\Http\Controllers\MembreController');
+Route::resource('type-cotisation', 'App\Http\Controllers\TypeCotisationController');
