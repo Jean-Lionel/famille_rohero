@@ -48,5 +48,11 @@ class Membre extends Model
             $model->user_id = auth()->user()->id;
         });
     }
+
+
+    public function getFullNameAttribute()
+    {
+       return $this->firstName . ' ' . $this->lastName; 
+    }
     
 }

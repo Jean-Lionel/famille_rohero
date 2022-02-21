@@ -18,7 +18,7 @@ class CreateContributionsTable extends Migration
             $table->foreignId('membre_id');
             $table->foreignId('typecotisation_id');
             $table->double('montant',64,2);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreignId('user_id');
             $table->timestamps();
             $table->softDeletes();
