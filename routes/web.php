@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\ContributionComponent;
+use App\Http\Livewire\ListeContribution;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('contribution', ContributionComponent::class)->name('contribution');
+Route::get('liste-contribution', ListeContribution::class)->name('liste-contribution');
 
 Route::resource('cellule', 'App\Http\Controllers\CelluleController');
 Route::resource('membre', 'App\Http\Controllers\MembreController');
