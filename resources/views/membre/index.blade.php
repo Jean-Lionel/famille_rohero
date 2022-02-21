@@ -21,6 +21,7 @@
                                         <th>Prénom</th>
                                         <th>Téléphone</th>
                                         <th>Cellule</th>
+                                        <th>Date d'enregistrement</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,11 @@
                                         <td>
                                             {{
                                                 $item->cellule->name ?? ""
+                                            }}
+                                        </td>
+                                        <td>
+                                            {{
+                                                $item->created_at ?? ""
                                             }}
                                         </td>
                                         <td>

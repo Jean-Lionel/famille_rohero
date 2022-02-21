@@ -71,7 +71,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('cellule.index') }}">
+                <a class="nav-link" href="{{ route('contribution') }}">
                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     <span>Contribution</span></a>
             </li>
