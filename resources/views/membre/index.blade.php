@@ -16,6 +16,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Compte</th>
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Téléphone</th>
@@ -27,6 +28,7 @@
                                 @foreach($membre as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->compte->name ?? '' }}</td>
                                         <td>{{ $item->firstName }}</td>
                                         <td>{{ $item->lastName }}</td>
                                         <td>{{ $item->telephone }}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Compte;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -32,6 +33,10 @@ class Membre extends Model
     public function cellule()
     {
         return $this->belongsTo('App\Models\Cellule');
+    }
+     public function compte()
+    {
+        return $this->belongsTo(Compte::class,'id','membre_id');
     }
 
     public static function boot()
