@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Cellule;
+use App\Models\Compte;
 use App\Models\Membre;
+use DB;
 use Illuminate\Http\Request;
 
 class MembreController extends Controller
@@ -54,11 +56,29 @@ class MembreController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+                'firstName' => 'required|max:255',
+                'lastName' => 'required|max:255',
+                'cellule_id' => 'required',
+            ]);
         
         $requestData = $request->all();
-        
-        Membre::create($requestData);
 
+        try {
+            DB::beginTransaction();
+            $membre = Membre::create($requestData);
+            Compte::create([
+                'name' => date('Y').'-'.str_pad($membre->id,4,"0",STR_PAD_LEFT),
+                'membre_id' => $membre->id,
+                'montant' => 0
+            ]);
+
+            DB::commit();
+            
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e->getMessage());
+        }
         return redirect('membre')->with('flash_message', 'Membre added!');
     }
 

@@ -20,6 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    @livewireStyles
+
 </head>
 <body id="page-top">
 
@@ -396,6 +398,8 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('template/js/demo/datatables-demo.js')}}"></script>
+
+    @livewireScripts
 
 </body>
 
