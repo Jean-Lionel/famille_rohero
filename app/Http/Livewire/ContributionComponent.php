@@ -59,6 +59,7 @@ class ContributionComponent extends Component
             session()->flash('success', "Opération effectué avec succès");
 
             DB::commit();
+              return redirect()->to('/liste-contribution');
         } catch (\Exception $e) {
             Db::rollback();
 

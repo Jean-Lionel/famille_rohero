@@ -3,10 +3,17 @@
 
     <div class="row">
         <div class="col-md-12">
+           
+            <a href="{{ route('contribution') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Ajouter</a>
+        </div>
+
+        <div class="col-md-12">
+
             <table class="table" id="dataTable">
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Numéro</th>
                         <th>Nom et Prénom</th>
                         <th>Cellule</th>
                         <th>Cotisation</th>
@@ -20,6 +27,9 @@
                     @foreach ($contributions as $element)
                         {{-- expr --}}
                         <tr>
+                            <th>
+                                {{ ++$loop->index}}
+                            </th>
                             <td>{{$element->id}}</td>
                             <td>{{$element->membre->fullname ?? ""}}</td>
                             <td>{{$element->membre->cellule->name ?? ""}}</td>
