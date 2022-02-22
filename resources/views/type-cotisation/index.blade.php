@@ -5,12 +5,12 @@
         <div class="row">
             @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Typecotisation</div>
+                    <div class="card-header">Cotisation et Contribution</div>
                     <div class="card-body">
                         <a href="{{ url('/type-cotisation/create') }}" class="btn btn-success btn-sm" title="Add New TypeCotisation">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Nouveau
                         </a>
 
                         <form method="GET" action="{{ url('/type-cotisation') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -30,23 +30,33 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Description</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Montant contribué (FBU)</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($typecotisation as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->description }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td class="">
+                                            {{
+                                                number_format($item->contribution->sum('montant') ?? 0) 
+                                            }}
+                                        </td>
                                         <td>
                                             <a href="{{ url('/type-cotisation/' . $item->id) }}" title="View TypeCotisation"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/type-cotisation/' . $item->id . '/edit') }}" title="Edit TypeCotisation"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                            <form method="POST" action="{{ url('/type-cotisation' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            {{-- <form method="POST" action="{{ url('/type-cotisation' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete TypeCotisation" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                 @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Contribution;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -28,6 +29,14 @@ class TypeCotisation extends Model
      * @var array
      */
     protected $fillable = ['name', 'description'];
+
+    public function contribution(){
+        return $this->hasmany(Contribution::class,'typecotisation_id');
+    }
+
+    public function montantContribuer(){
+
+    }
 
     
 }
