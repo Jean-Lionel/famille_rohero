@@ -6,11 +6,18 @@
            
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Membres</div>
+                    
                     <div class="card-body">
-                        <a href="{{ url('/membre/create') }}" class="btn btn-success btn-sm" title="Add New Membre">
+                        <div class="d-flex justify-content-between">
+                             <h4 class="text-center">Membres</h4>
+                            <div>
+                                <a href="{{ url('/membre/create') }}" class="btn btn-success btn-sm" title="Add New Membre">
                             <i class="fa fa-plus" aria-hidden="true"></i> Nouveau
-                        </a>
+                             </a>
+                            </div>
+                           
+                        </div>
+
                         <div class="table-responsive">
                             <table  id="dataTable" class="table" style="width:100%;">
                                 <thead>
