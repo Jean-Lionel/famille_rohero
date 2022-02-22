@@ -1,23 +1,18 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Cotisation {{ $typecotisation->id }}</div>
+                    <div class="card-header">Cotisation : <b> {{ $typecotisation->name }} </b></div>
                     <div class="card-body">
 
                         <a href="{{ url('/type-cotisation') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/type-cotisation/' . $typecotisation->id . '/edit') }}" title="Edit TypeCotisation"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                        <form method="POST" action="{{ url('typecotisation' . '/' . $typecotisation->id) }}" accept-charset="UTF-8" style="display:inline">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete TypeCotisation" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                        </form>
+                      
                         <br/>
                         <br/>
 
@@ -26,8 +21,41 @@
                                 <tbody>
                                     <tr>
                                         <th>ID</th><td>{{ $typecotisation->id }}</td>
+                                         <th> {{ $typecotisation->name }} </th>
+                                          <th> Description </th><td> {{ $typecotisation->description }} </td>
+                                          <th>Total des contributeurs</th>
+                                          <td>
+                                              {{$typecotisation->contribution->count()}} personnes
+                                          </td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $typecotisation->name }} </td></tr><tr><th> Description </th><td> {{ $typecotisation->description }} </td></tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-center">Liste des contributeurs</h4>
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nom et prénom</th>
+                                        <th>Cellulle</th>
+                                        <th>Montant</th>
+                                        <th>Date de paiment</th>
+                                    </tr>
+                                    
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach ($typecotisation->contribution as $element)
+                                        {{-- expr --}}
+                                        <tr>
+                                            <td>  {{ ++$loop->index}}</td>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>
