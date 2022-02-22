@@ -57,8 +57,13 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total des Cellules
+                                    
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> 
+                                        
+                                            Total des Cellules
+                                       
                                     </div>
+
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
@@ -88,9 +93,12 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
+                                    <a href="{{ route('type-cotisation.index') }}"> 
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Total DES TYPES DE COTISATIONS </div>
                                     <div class="h5 mb-0 font-weight-bold text-center text-gray-800">{{$typeCotisationTotal}}</div>
+
+                                </a>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-comments fa-2x text-gray-300"></i>

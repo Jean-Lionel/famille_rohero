@@ -25,7 +25,11 @@
                                           <th> Description </th><td> {{ $typecotisation->description }} </td>
                                           <th>Total des contributeurs</th>
                                           <td>
-                                              {{$typecotisation->contribution->count()}} personnes
+                                              {{$typecotisation->contribution->count()}} 
+
+                                              {{
+                                                Str::plural('personne', $typecotisation->contribution->count())
+                                              }}
                                           </td>
                                     </tr>
                                     
@@ -34,7 +38,7 @@
                         </div>
                         <h4 class="text-center">Liste des contributeurs</h4>
                         <div>
-                            <table class="table">
+                            <table class="table" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -52,7 +56,18 @@
                                         {{-- expr --}}
                                         <tr>
                                             <td>  {{ ++$loop->index}}</td>
-                                            <td></td>
+                                            <td>
+                                                {{$element->membre->fullname ?? "" }}
+                                            </td>
+                                            <td>
+                                                {{$element->membre->cellule->name ?? "" }}
+                                            </td>
+                                            <td>
+                                                {{ number_format($element->montant)}}
+                                            </td>
+                                            <td>
+                                                {{ $element->created_at}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                     
