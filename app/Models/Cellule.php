@@ -37,5 +37,16 @@ class Cellule extends Model
         return $this->hasmany(Membre::class);
     }
 
+
+    public function getTotalMontant(){
+        $montant = 0;
+        foreach ($this->membres as $key => $value) {
+            // code...
+            $montant += $value->compte->montant ?? 0;
+        }
+
+        return $montant;
+    }
+
     
 }
