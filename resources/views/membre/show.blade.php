@@ -34,7 +34,14 @@
                                     </tr>
 
                                     <tr>
-                                        <th> Nom </th><td> {{ $membre->firstName }} </td></tr><tr><th> Prénom </th><td> {{ $membre->lastName }} </td></tr><tr><th> Telephone </th><td> {{ $membre->telephone }} </td></tr>
+                                        <th> Nom </th><td> {{ $membre->firstName }} </td></tr><tr><th> Prénom </th><td> {{ $membre->lastName }} </td></tr><tr><th> Telephone </th><td> {{ $membre->telephone }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Montant TOTAL</th>
+                                        <th>
+                                            {{ number_format($membre->compte->montant) }} # FBU
+                                        </th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
