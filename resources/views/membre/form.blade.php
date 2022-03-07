@@ -25,7 +25,10 @@
         <option value=""></option>
         @foreach ($cellules as $cellule)
         {{-- expr --}}
-        <option value="{{$cellule->id}}">{{$cellule->name}}</option>
+        <option value="{{$cellule->id}}" @if ($cellule->id == $membre->cellule_id)
+            {{-- expr --}}
+            selected
+        @endif>{{$cellule->name}}</option>
         @endforeach
     </select>
 

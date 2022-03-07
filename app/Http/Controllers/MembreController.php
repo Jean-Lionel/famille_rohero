@@ -106,8 +106,9 @@ class MembreController extends Controller
     public function edit($id)
     {
         $membre = Membre::findOrFail($id);
+        $cellules = Cellule::all();
 
-        return view('membre.edit', compact('membre'));
+        return view('membre.edit', compact('membre','cellules'));
     }
 
     /**
