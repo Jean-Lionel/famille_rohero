@@ -1,15 +1,15 @@
 <div class="form-group {{ $errors->has('firstName') ? 'has-error' : ''}}">
-    <label for="firstName" class="control-label">{{ 'Firstnames' }}</label>
+    <label for="firstName" class="control-label">{{ 'Nom' }}</label>
     <input class="form-control" name="firstName" type="text" id="firstName" value="{{ isset($membre->firstName) ? $membre->firstName : ''}}" >
     {!! $errors->first('firstName', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('lastName') ? 'has-error' : ''}}">
-    <label for="lastName" class="control-label">{{ 'Lastname' }}</label>
+    <label for="lastName" class="control-label">{{ 'Prénom' }}</label>
     <input class="form-control" name="lastName" type="text" id="lastName" value="{{ isset($membre->lastName) ? $membre->lastName : ''}}" >
     {!! $errors->first('lastName', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('telephone') ? 'has-error' : ''}}">
-    <label for="telephone" class="control-label">{{ 'Telephone' }}</label>
+    <label for="telephone" class="control-label">{{ 'Téléphone' }}</label>
     <input class="form-control" name="telephone" type="text" id="telephone" value="{{ isset($membre->telephone) ? $membre->telephone : ''}}" >
     {!! $errors->first('telephone', '<p class="help-block">:message</p>') !!}
 </div>
