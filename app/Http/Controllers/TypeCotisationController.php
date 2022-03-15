@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\Membre;
 use App\Models\TypeCotisation;
 use Illuminate\Http\Request;
 
@@ -28,7 +28,18 @@ class TypeCotisationController extends Controller
             $typecotisation = TypeCotisation::latest()->paginate($perPage);
         }
 
-        return view('type-cotisation.index', compact('typecotisation'));
+        $total_membres = Membre::all()->count();
+
+        return view('type-cotisation.index', compact('typecotisation','total_membres'));
+    }
+
+    public function details(){
+        $id = \Request::get('id');
+        $status = \Request::get('status');
+        dump($id, $status);
+
+        
+        return view('rapport.details');
     }
 
     /**
@@ -68,8 +79,9 @@ class TypeCotisationController extends Controller
     public function show($id)
     {
         $typecotisation = TypeCotisation::findOrFail($id);
+        $total_membres = Membre::all()->count();
 
-        return view('type-cotisation.show', compact('typecotisation'));
+        return view('type-cotisation.show', compact('typecotisation', 'total_membres'));
     }
 
     /**

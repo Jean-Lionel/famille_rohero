@@ -1,10 +1,9 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            @include('admin.sidebar')
-
+           
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Cotisation et Contribution</div>
@@ -34,6 +33,8 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Montant contribué (FBU)</th>
+                                        <th>Proportion des contributions</th>
+                                        <th>Date de création</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -48,6 +49,21 @@
                                                 number_format($item->contribution->sum('montant') ?? 0) 
                                             }}
                                         </td>
+                                        <td>
+                                            <small>
+                                                Contribution {{$item->contribution->count()}} / {{ $total_membres}}
+                                            </small>
+                                       <div class="progress mb-4">
+                                        @php
+                                            $value = ($item->contribution->count() / (
+                                                $total_membres ?? 1)) *100;
+                                        @endphp
+                                            
+                                            <div class="progress-bar" role="progressbar-sm" style="width: {{$value  }}%" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        
+                                        </td>
+                                        <td>{{$item->created_at}}</td>
                                         <td>
                                             <a href="{{ url('/type-cotisation/' . $item->id) }}" title="View TypeCotisation"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/type-cotisation/' . $item->id . '/edit') }}" title="Edit TypeCotisation"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

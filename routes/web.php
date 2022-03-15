@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('cellule', 'App\Http\Controllers\CelluleController');
     Route::resource('membre', 'App\Http\Controllers\MembreController');
     Route::resource('type-cotisation', 'App\Http\Controllers\TypeCotisationController');
+    Route::get('details', ['App\Http\Controllers\TypeCotisationController','details'])->name('details');
 
 });
 

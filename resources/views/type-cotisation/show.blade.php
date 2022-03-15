@@ -23,13 +23,26 @@
                                         <th>ID</th><td>{{ $typecotisation->id }}</td>
                                          <th> {{ $typecotisation->name }} </th>
                                           <th> Description </th><td> {{ $typecotisation->description }} </td>
-                                          <th>Total des contributeurs</th>
+                                          <th>Ceux qui ont  contribués</th>
                                           <td>
-                                              {{$typecotisation->contribution->count()}} 
+                                              
+                                              <a href="{{ route('details',['id'=>$typecotisation->id, 'status'=> 'CONTRIBUTION']) }}">
+                                                {{$typecotisation->contribution->count()}} 
 
                                               {{
                                                 Str::plural('personne', $typecotisation->contribution->count())
                                               }}
+                                                  
+                                              </a>
+                                          </td>
+                                          <th>Ceux qui n'ont pas  contribués</th>
+                                          <td>
+                                              <a href="{{ route('details',['id'=>$typecotisation->id, 'status'=> 'NON_CONTRIBUTION']) }}">
+                                                  {{$total_membres}} 
+                                              {{
+                                                Str::plural('personne', $total_membres)
+                                              }}
+                                              </a>
                                           </td>
                                     </tr>
                                     
