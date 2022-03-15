@@ -87,7 +87,7 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('membre.index') }}">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Membres</span></a>
             </li>
             <hr class="sidebar-divider">
@@ -95,9 +95,16 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('type-cotisation.index') }}">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-calendar"></i>
                     <span>Cotisation</span></a>
             </li>
+             <hr class="sidebar-divider">
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('type-cotisation.index') }}">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Rapport</span></a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
