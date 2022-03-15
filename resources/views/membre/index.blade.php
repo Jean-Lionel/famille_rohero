@@ -27,6 +27,7 @@
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Téléphone</th>
+                                        <th>Email</th>
                                         <th>Cellule</th>
                                         <th>Date d'enregistrement</th>
                                         <th>Actions</th>
@@ -40,6 +41,7 @@
                                         <td>{{ $item->firstName }}</td>
                                         <td>{{ $item->lastName }}</td>
                                         <td>{{ $item->telephone }}</td>
+                                        <td>  <a href="mailto:{{ $item->email}})"> {{ $item->email }}</a></td>
                                         <td>
                                             {{
                                                 $item->cellule->name ?? ""

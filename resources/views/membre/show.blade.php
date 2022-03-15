@@ -35,6 +35,11 @@
 
                                     <tr>
                                         <th> Nom </th><td> {{ $membre->firstName }} </td></tr><tr><th> Prénom </th><td> {{ $membre->lastName }} </td></tr><tr><th> Telephone </th><td> {{ $membre->telephone }} </td>
+
+                                            <th>Email</th>
+                                            <td>
+                                                <a href="mailto:{{ $membre->email}})"> {{ $membre->email }}</a>
+                                            </td>
                                     </tr>
                                     <tr>
                                         <th>Montant TOTAL</th>

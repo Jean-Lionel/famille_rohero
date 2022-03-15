@@ -100,7 +100,7 @@
             </li>
              <hr class="sidebar-divider">
              <li class="nav-item">
-                <a class="nav-link" href="{{ route('type-cotisation.index') }}">
+                <a class="nav-link" href="{{ route('rapport') }}">
                     <i class="fas fa-clipboard-list"></i>
                     <span>Rapport</span></a>
             </li>

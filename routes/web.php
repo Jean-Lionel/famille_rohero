@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RapportController;
 use App\Http\Livewire\ContributionComponent;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\ListeContribution;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('contribution', ContributionComponent::class)->name('contribution');
+    Route::get('rapport', [RapportController::class, 'index'])->name('rapport');
     Route::get('liste-contribution', ListeContribution::class)->name('liste-contribution');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 
