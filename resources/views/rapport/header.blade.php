@@ -1,10 +1,10 @@
 <div>
 	<ul>
 		<li>
-			<a href="">Cotisations et  Contributions des membres </a>
+			<a href="{{ route('history_membre') }} ">Cotisations et  Contributions des membres </a>
 		</li>
 		<li>
-			<a href="">Rapport par Cellule </a>
+			<a href="{{ route('rapport_cellule') }}">Rapport par Cellule </a>
 		</li>
 		<li>
 			<a href="{{ route('type-cotisation.index') }}">Rapport par type de contribution</a>
