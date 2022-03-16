@@ -6,12 +6,14 @@ use App\Models\Membre;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use DB;
 
 class ProfileComponent extends Component
 {
     public $identifyMember;
     public $membre;
     public $createdUser;
+
 
     public function render()
     {
@@ -33,6 +35,14 @@ class ProfileComponent extends Component
             'role' => 'MEMBRE'
         ];
 
-        $this->createdUser = User::create($user);
+        try {
+            DB::beginTransaction();
+            $this->createdUser = User::create($user);
+            DB::commit();
+            
+        } catch (\Exception $e) {
+            DB::rollback();
+            session()->flash('error', $this->membre->fullname. ' est déjà définit comme utilisateur');
+        }
     }
 }

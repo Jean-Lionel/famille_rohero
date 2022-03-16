@@ -31,6 +31,14 @@
                             Dès maintenant il peut se connecter en utilisant <b>{{ $createdUser->email}}</b> comme nom d'utilisateur et <b>rohero</b> comme le mot de passe
                         </p>
                     @endif
+
+                    @if (session()->has('error'))
+                        {{-- expr --}}
+                        <div class="alert alert-danger">
+                                    {{session('error') }}
+                        </div>
+
+                    @endif
                 </div>
                 @endif
             </div>
