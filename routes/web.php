@@ -4,6 +4,7 @@ use App\Http\Controllers\RapportController;
 use App\Http\Livewire\ContributionComponent;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\ListeContribution;
+use App\Http\Livewire\ProfileComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function(){
     Route::get('rapport', [RapportController::class, 'index'])->name('rapport');
     Route::get('liste-contribution', ListeContribution::class)->name('liste-contribution');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('profile', ProfileComponent::class)->name('profile');
 
     Route::resource('cellule', 'App\Http\Controllers\CelluleController');
     Route::resource('membre', 'App\Http\Controllers\MembreController');

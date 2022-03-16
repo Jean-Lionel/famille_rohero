@@ -104,6 +104,12 @@
                     <i class="fas fa-clipboard-list"></i>
                     <span>Rapport</span></a>
             </li>
+            <hr class="sidebar-divider">
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile') }}">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span></a>
+            </li>
 
 
             <!-- Divider -->
