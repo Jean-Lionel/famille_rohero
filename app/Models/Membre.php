@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Compte;
+use App\Models\Contribution;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -37,6 +38,10 @@ class Membre extends Model
      public function compte()
     {
         return $this->belongsTo(Compte::class,'id','membre_id');
+    }
+
+    public function contributions(){
+        return $this->hasmany(Contribution::class);
     }
 
     public static function boot()
