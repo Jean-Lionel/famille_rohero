@@ -9,5 +9,8 @@
 		<li>
 			<a href="{{ route('type-cotisation.index') }}">Rapport par type de contribution</a>
 		</li>
+		<li>
+			<a href="{{ route('list_user') }}">Liste des utilisateurs</a>
+		</li>
 	</ul>
 </div>

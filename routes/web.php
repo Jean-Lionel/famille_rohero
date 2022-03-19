@@ -5,6 +5,7 @@ use App\Http\Livewire\ContributionComponent;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\HistoryMembre;
 use App\Http\Livewire\ListeContribution;
+use App\Http\Livewire\ListeUser;
 use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\RapportCellule;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function(){
     Route::get('profile', ProfileComponent::class)->name('profile');
     Route::get('history_membre', HistoryMembre::class)->name('history_membre');
     Route::get('rapport_cellule', RapportCellule::class)->name('rapport_cellule');
+    Route::get('list_user', ListeUser::class)->name('list_user');
 
     Route::resource('cellule', 'App\Http\Controllers\CelluleController');
     Route::resource('membre', 'App\Http\Controllers\MembreController');
