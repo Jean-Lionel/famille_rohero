@@ -25,9 +25,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function(){
     
-    Route::get('/', function () {
-        return view('home');
-    });
+    Route::get('/',Dashboard::class);
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('contribution', ContributionComponent::class)->name('contribution');
