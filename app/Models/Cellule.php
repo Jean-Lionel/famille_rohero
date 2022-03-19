@@ -45,16 +45,12 @@ class Cellule extends Model
             // code...
             $montant += $value->compte->montant ?? 0;
         }
-
         return $montant;
     }
 
     public function contributionTypeCotisations(){
         $membres = $this->membres->map->id->toArray();
         $cotisations = Contribution::whereIn('membre_id', $membres)->get();
-
-        dump($cotisations );
-
         return $cotisations;
     }
     
