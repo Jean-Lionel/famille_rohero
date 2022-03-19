@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Cellule;
+use App\Models\Contribution;
 use App\Models\Membre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -48,5 +49,13 @@ class Cellule extends Model
         return $montant;
     }
 
+    public function contributionTypeCotisations(){
+        $membres = $this->membres->map->id->toArray();
+        $cotisations = Contribution::whereIn('membre_id', $membres)->get();
+
+        dump($cotisations );
+
+        return $cotisations;
+    }
     
 }
